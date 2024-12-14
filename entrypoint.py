@@ -154,7 +154,7 @@ def set_output(repository_root, workdir):
     )
 
     subprocess.check_call(
-        ["chown", "777", os.environ["GITHUB_OUTPUT"]],
+        ["chmod", "777", os.environ["GITHUB_OUTPUT"]],
         shell=True
     )
 
