@@ -6,7 +6,7 @@ FROM kivy/buildozer:latest
 RUN pip3 uninstall -y buildozer
 
 # Update Cython as Buildozer now requires it to build successfully
-RUN pip install --upgrade Cython==0.29.33
+RUN pip3 install --upgrade Cython==0.29.33
 
 # Get the latest JDK version as Buildozer requires the latest version to build the APK
 RUN sudo apt-get update && \
@@ -26,5 +26,5 @@ RUN echo "Set disable_coredump false" | sudo tee -a /etc/sudo.conf > /dev/null
 # Set env variable to disable this behavior
 ENV PYTHONUNBUFFERED=1
 
-COPY entrypoint.py /action/entrypoint.py
-ENTRYPOINT ["/action/entrypoint.py"]
+COPY entrypoint.py /github/workspace/action/entrypoint.py
+ENTRYPOINT ["/github/workspace/action/entrypoint.py"]
