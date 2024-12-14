@@ -8,6 +8,9 @@ with [Buildozer](https://github.com/kivy/buildozer). This action uses official
 Buildozer [Docker image](https://github.com/kivy/buildozer/blob/master/Dockerfile),
 but adds some features and patches to use in GitHub Actions.
 
+> [!Note]
+> Please specify `python3==3.10.12,hostpython3==3.10.12,pyjnius>=1.5.0` in your spec file requirements for successfull building
+
 ## Full workflow
 
 Full workflow with uploading binaries as artifact.
@@ -24,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
@@ -34,7 +37,7 @@ jobs:
           buildozer_version: stable
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: ${{ steps.buildozer.outputs.filename }}
@@ -69,7 +72,7 @@ jobs:
 
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
           with:
             path: master
 
@@ -82,13 +85,13 @@ jobs:
             buildozer_version: stable
 
         - name: Upload artifacts
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v4
           with:
             name: package
             path: ${{ steps.buildozer.outputs.filename }}
 
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
           with:
             path: data
             ref: data # Branch name
