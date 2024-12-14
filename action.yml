@@ -1,6 +1,6 @@
-name: Buildozer action
+name: Buildozer action (fix)
 description: Build Python package with Kivy Buildozer
-author: Artem Bulgakov
+author: Artem Bulgakov + gxost
 branding:
   icon: package
   color: yellow
@@ -15,7 +15,7 @@ inputs:
     required: true
     default: .
   workdir:
-    description: Working directory where buildozer.spec is located. Set to `src` if buildozer.spec is in `src` directory
+    description: Working directory where buildozer.spec is located. Set to `src` if buildozer.spec is in `src` directory. Defaults to `.`
     required: true
     default: .
   buildozer_version:

@@ -6,7 +6,7 @@ FROM kivy/buildozer:latest
 RUN pip3 uninstall -y buildozer
 
 # Update Cython as Buildozer now requires it to build successfully
-RUN pip install --upgrade Cython
+RUN pip install --upgrade Cython==0.29.33
 
 # Get the latest JDK version as Buildozer requires the latest version to build the APK
 RUN sudo apt-get update && \
@@ -15,6 +15,7 @@ RUN sudo apt-get update && \
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt update
 RUN sudo apt-get -y install openjdk-17-jdk
+RUN sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
 # Remove a lot of warnings
 # sudo: setrlimit(RLIMIT_CORE): Operation not permitted
