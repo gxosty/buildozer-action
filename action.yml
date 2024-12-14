@@ -3,7 +3,7 @@ description: Build Python package with Kivy Buildozer
 author: Artem Bulgakov + gxost
 branding:
   icon: package
-  color: yellow
+  color: purple
 
 inputs:
   command:
