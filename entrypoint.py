@@ -152,8 +152,15 @@ def set_output(repository_root, workdir):
     path = os.path.normpath(
         os.path.join(repository_root, workdir, "bin", filename)
     )
-    with open(os.environ["GITHUB_OUTPUT"], "w") as gofh:
-        print(f'filename={path}', file=gofh)
+
+    # with open(os.environ["GITHUB_OUTPUT"], "w") as gofh:
+    #     print(f'filename={path}', file=gofh)
+
+    subprocess.check_call(
+        ["echo", f"filename={path}", ">>", os.environ["GITHUB_OUTPUT"]],
+        shell=True,
+    )
+
 
 if __name__ == "__main__":
     main()
