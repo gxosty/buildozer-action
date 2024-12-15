@@ -153,11 +153,6 @@ def set_output(repository_root, workdir):
         os.path.join(repository_root, workdir, "bin", filename)
     )
 
-    subprocess.check_call(
-        ["chmod", "777", os.environ["GITHUB_OUTPUT"]],
-        shell=True
-    )
-
     with open(os.environ["GITHUB_OUTPUT"], "a") as gofh:
         print(f"filename={path}", file=gofh)
 
