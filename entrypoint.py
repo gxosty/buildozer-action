@@ -153,7 +153,7 @@ def set_output(repository_root, workdir):
         os.path.join(repository_root, workdir, "bin", filename)
     )
 
-    with open(os.environ["GITHUB_OUTPUT"], "a") as gofh:
+    with open("/github/workspace/github_output", "w") as gofh:
         print(f"filename={path}", file=gofh)
 
 
